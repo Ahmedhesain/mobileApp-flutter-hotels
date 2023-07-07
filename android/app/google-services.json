@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "286442717903",
+    "project_id": "trivago-215f0",
+    "storage_bucket": "trivago-215f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:286442717903:android:66b95aa29020da2d67adba",
+        "android_client_info": {
+          "package_name": "hotels.com_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "286442717903-q153ea4lja1ks6v0q4f93b9v9tpgo0t1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7Hl8hQkO5c9nUQchPu816r9AXI70Xz34"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "286442717903-1ks2ksgg567b606f43vvukghusud4ps5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
