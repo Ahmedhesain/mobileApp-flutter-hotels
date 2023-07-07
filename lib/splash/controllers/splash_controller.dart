@@ -13,8 +13,9 @@ class SplashController extends GetxController {
   void onInit() {
     super.onInit();
     // SizeConfig();
-
+    SizeConfig();
   }
+
   void onReady() async{
     super.onReady();
     await Future.delayed(const Duration(seconds: 1));

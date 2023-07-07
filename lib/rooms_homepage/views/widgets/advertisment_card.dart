@@ -8,17 +8,18 @@ import 'package:hotels_app/core/values/app_constants.dart';
 import 'package:hotels_app/routes/app_pages.dart';
 
 class AdCard extends StatelessWidget {
-  const AdCard({Key? key, required this.hotel, required this.image, required this.name, required this.id}) : super(key: key);
+  const AdCard({Key? key, required this.hotel, required this.image, required this.name, required this.id,this.onTap}) : super(key: key);
   final String hotel;
   final String image;
   final int id;
   final String name;
+  final Future Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Get.toNamed(Routes.ROOM_DETAIL,arguments: id);
+      onTap;
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),

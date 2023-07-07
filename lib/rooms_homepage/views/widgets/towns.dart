@@ -9,7 +9,7 @@ import 'package:hotels_app/routes/app_pages.dart';
 class TownCard extends StatelessWidget {
   const TownCard({Key? key, required this.image, required this.name, this.onTap, required this.id}) : super(key: key);
   final String image;
-  final int id;
+  final String id;
   final String name;
   final Function()? onTap;
 
@@ -19,7 +19,7 @@ class TownCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size =MediaQuery.of(context).size;
     return GestureDetector(onTap: (){
-      // Get.toNamed(Routes.CITY_ROOM_SEARCH_FILTER,arguments: id);
+      Get.toNamed(Routes.HOTEL_ROOMS,arguments: [id]);
     },
       child: Container(
         width: size.width * .45,

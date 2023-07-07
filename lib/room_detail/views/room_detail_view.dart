@@ -43,9 +43,8 @@ class RoomDetailView extends GetView<RoomDetailController> {
                 padding: const EdgeInsets.only(bottom: 5),
                 child: SizedBox(
                   height: 250.h,
-                  child: ImageWidget(
-                    path:
-                        controller.selectedImage.value.toString(),
+                  child: Image.network(
+                    controller.room['img1'],
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -53,7 +52,7 @@ class RoomDetailView extends GetView<RoomDetailController> {
               SizedBox(
                       height: size.height * .1,
                       child: ListView.builder(
-                        itemCount: 6,
+                        itemCount: controller.allImages.length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                           return Padding(
@@ -63,10 +62,10 @@ class RoomDetailView extends GetView<RoomDetailController> {
                                 controller.setSelectedImage(
                                    " controller.room!.itemImages![index].image");
                               },
-                              child: ImageWidget(
-                                path:
-                                    "controller.room!.itemImages![index].image",
-                                radius: 20.w,
+                              child: Image.network(
+
+                                controller.allImages[index],
+
                                 width: size.width * .3,
                                 height: size.height * .18,
                                 fit: BoxFit.fill,
@@ -86,7 +85,7 @@ class RoomDetailView extends GetView<RoomDetailController> {
                           Padding(
                             padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
                             child: Container(
-                              width: size.width * .75,
+                              // width: size.width * .75,
                               height: size.height * .12,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,10 +94,12 @@ class RoomDetailView extends GetView<RoomDetailController> {
                                     textBaseline: TextBaseline.alphabetic,
                                     children: [
                                       TextWidget(
+
                                        controller.room['name'],
                                         weight: FontWeight.bold,
-                                        textColor: AppColors.appBlue,
+                                        textColor: AppColors.appHallsRedDark,
                                         size: 25,
+                                        maxLines: 3,
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.fromLTRB(
@@ -111,7 +112,7 @@ class RoomDetailView extends GetView<RoomDetailController> {
                                     ],
                                   ),
                                   TextWidget(
-                                    "controller.room!.branchName!",
+                                    controller.room['rate']??"",
                                     weight: FontWeight.bold,
                                   ),
                                 ],
@@ -130,7 +131,7 @@ class RoomDetailView extends GetView<RoomDetailController> {
                       SizedBox(
                         width: size.width * .9,
                         child: const TextWidget(
-                          "AppStrings.roomDetail",
+                          "Details",
                           textAlign: TextAlign.start,
                           weight: FontWeight.bold,
                         ),
@@ -328,10 +329,10 @@ class RoomDetailView extends GetView<RoomDetailController> {
                             child: SizedBox(
                               width: size.width * .35,
                               child: CircleAvatar(
-                                backgroundColor: AppColors.appBlue,
+                                backgroundColor: AppColors.appHallsRedDark,
                                 radius: 40,
                                 child: CircleAvatar(
-                                  backgroundColor: Colors.blueAccent,
+                                  backgroundColor: AppColors.colorLogo,
                                   radius: 32,
                                   child: TextWidget(
                                     "4",
@@ -376,7 +377,7 @@ class RoomDetailView extends GetView<RoomDetailController> {
                                     Icon(
                                       Icons.directions,
                                       size: size.width * .1,
-                                      color: AppColors.appBlue,
+                                      color: AppColors.colorLogo,
                                     ),
                                     TextWidget(
                                       AppStrings.directions,
@@ -401,19 +402,20 @@ class RoomDetailView extends GetView<RoomDetailController> {
                           child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const TextWidget(
-                            AppStrings.around,
-                            weight: FontWeight.bold,
-                          ),
+                          TextWidget("Discription",
+                              weight: FontWeight.bold,
+                              size: size.width * 0.045),
                           SizedBox(
-                            height:
-                                onshow ? size.height * .3 : size.height * .3,
+                            // height:
+                                // onshow ? size.height * .3 : size.height * .3,
                             width: size.width * .9,
                             child: SingleChildScrollView(
                               physics: const AlwaysScrollableScrollPhysics(),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+
+                                  TextWidget(controller.room['discription'])
                                   // SizedBox(
                                   //   width: size.width * .9,
                                   //   child: Column(
@@ -484,19 +486,20 @@ class RoomDetailView extends GetView<RoomDetailController> {
                                   weight: FontWeight.bold,
                                 ),
                                 style: ElevatedButton.styleFrom(
-                                    primary: AppColors.appBlue,
+                                    primary: AppColors.appHallsRedDark,
                                     textStyle: TextStyle(color: Colors.white)),
                                 onPressed: () {
                                   controller.saveOrder();
-                                  Get.toNamed(Routes.ROOMS,
-                                      // arguments: controller.room
-                                  );
+                                  // Get.toNamed(Routes.HOME,
+                                  //     // arguments: controller.room
+                                  // );
+                                  Get.close(0);
                                 },
                                 icon: const Icon(Icons.mail),
                               ),
                             ),
                             TextWidget(
-                            "666" +
+                            controller.room["price"].toString() +
                                   AppStrings.LE,
                               weight: FontWeight.bold,
                               size: 20,

@@ -15,6 +15,7 @@ class HotelRoomsPageController extends GetxController {
   late double to=10000.0.obs();
 
 final searchResults=[].obs();
+final searchIdResults=[].obs();
 
 
   @override
@@ -32,9 +33,10 @@ final searchResults=[].obs();
     try{
       await FirebaseFirestore.instance.collection(args[0]).get().then((querySnapshot){
         final searchList = querySnapshot.docs.map((doc) => doc.data()).toList();
-         final intialId = querySnapshot.docs.map((doc) => doc.id).toString().substring(1);
-         id=intialId.substring(0,intialId.length-1);
+         final List intialId = querySnapshot.docs.map((doc) => doc.id).toList();
+         // id=intialId.substring(0,intialId.length-1);
         searchResults.assignAll(searchList);
+        searchIdResults.assignAll(intialId);
         print(searchResults);
         isLoading(false);
 

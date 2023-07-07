@@ -63,7 +63,7 @@ class HotelRoomsPageView extends GetView<HotelRoomsPageController> {
                     itemCount: controller.searchResults.length,
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
-                      return  RoomsCardWidget( price: controller.searchResults[index]["price"], image:"", title:controller.searchResults[index]["name"], subtitle:controller.searchResults[index]["city"],id:controller.id!,collection: controller.args[0],onTap:(){},);
+                      return  RoomsCardWidget( price: controller.searchResults[index]["price"].toString(), image: controller.searchResults[index]["img1"], title:controller.searchResults[index]["name"], subtitle:controller.searchResults[index]["city"],id:controller.searchIdResults[index],collection: controller.args[0],onTap:(){},rate:3.0);
                     },
 
                   ),),
@@ -76,7 +76,7 @@ class HotelRoomsPageView extends GetView<HotelRoomsPageController> {
       }),
       floatingActionButtonLocation: ExpandableFab.location,
       floatingActionButton: ExpandableFab(
-        backgroundColor: AppColors.appBlue,
+        backgroundColor: AppColors.colorLogo,
         closeButtonHeroTag: UniqueKey(),
         openButtonHeroTag: UniqueKey(),
         child: const Icon(Icons.filter_list_rounded, color: Colors.white,),

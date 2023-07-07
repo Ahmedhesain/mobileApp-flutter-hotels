@@ -24,7 +24,7 @@ class LoginController extends GetxController {
 
   Future login() async{
     await FirebaseAuth.instance.signInWithEmailAndPassword(email: phoneController.text.trim(), password: passwordController.text.trim());
-    Get.offAndToNamed(Routes.ROOMS);
+    Get.offAndToNamed(Routes.HOME);
   }
   // Future login() async {
   //   if (!loginForm.currentState!.validate()) return;

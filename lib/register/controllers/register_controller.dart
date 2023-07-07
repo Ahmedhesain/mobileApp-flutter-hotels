@@ -38,7 +38,7 @@ class RegisterController extends GetxController {
   }
   Future register() async{
     await FirebaseAuth.instance.createUserWithEmailAndPassword(email: phoneController.text.trim(), password: passwordController.text.trim());
-    Get.offAndToNamed(Routes.ROOMS);
+    Get.offAndToNamed(Routes.HOME);
   }
   // Future register() async {
   //   if(!registerForm.currentState!.validate()) return;

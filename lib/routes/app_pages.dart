@@ -1,10 +1,16 @@
 
 
 import 'package:get/get.dart';
+import 'package:hotels_app/acoount_homepage/bindings/my_account_binding.dart';
+import 'package:hotels_app/acoount_homepage/views/my_account_view.dart';
+import 'package:hotels_app/home/bindings/home_binding.dart';
+import 'package:hotels_app/home/views/home_view.dart';
 import 'package:hotels_app/hotel_rooms/bindings/hotel_rooms_page_binding.dart';
 import 'package:hotels_app/hotel_rooms/views/hotel_rooms_page_view.dart';
 import 'package:hotels_app/login/bindings/login_binding.dart';
 import 'package:hotels_app/login/views/login_view.dart';
+import 'package:hotels_app/my_orders/bindings/my_orders_binding.dart';
+import 'package:hotels_app/my_orders/views/my_orders_view.dart';
 import 'package:hotels_app/register/bindings/register_binding.dart';
 import 'package:hotels_app/register/views/register_view.dart';
 import 'package:hotels_app/room_detail/bindings/room_details_binding.dart';
@@ -52,6 +58,18 @@ class AppPages {
       name: _Paths.ROOM_DETAIL,
       page: () => const RoomDetailView(),
       binding: RoomDetailBinding(),
+    ),GetPage(
+      name: _Paths.HOME,
+      page: () => const HomeView(),
+      binding: HomeBinding(),
+    ),GetPage(
+      name: _Paths.ORDERS,
+      page: () => const MyOrdersView(),
+      binding: MyOrdersBinding(),
+    ),GetPage(
+      name: _Paths.PROFILE,
+      page: () => const MyAccountView(),
+      binding: MyAccountBinding(),
     ),
 
   ];

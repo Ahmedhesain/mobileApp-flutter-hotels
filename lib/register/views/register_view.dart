@@ -74,11 +74,11 @@ class RegisterView extends GetView<RegisterController> {
               Container(
 
                   margin: EdgeInsets.only(top: 40.h),
-                  child: ImageWidget(path: AppAssets.logoImg,width: 100,height:110,),),
-              Padding(
-                padding:  EdgeInsets.only(top: 0.h),
-                child: TextWidget(AppStrings.Welcome,textColor: AppColors.appHallsRedDark,weight:FontWeight.bold,size: size.height*.05,),
-              ),
+                  child: ImageWidget(path: AppAssets.logoImg,width: 250,height:110,),),
+              // Padding(
+              //   padding:  EdgeInsets.only(top: 0.h),
+              //   child: TextWidget(AppStrings.Welcome,textColor: AppColors.appHallsRedDark,weight:FontWeight.bold,size: size.height*.05,),
+              // ),
               Container(
                 // margin: const EdgeInsets.all(10),
                 padding: const EdgeInsets.all(20),
@@ -231,7 +231,7 @@ class RegisterView extends GetView<RegisterController> {
                         expanded: true,
                         fontColor: Colors.white,
                         fontSize: size.height*.026,
-                        buttonColor: Theme.of(context).primaryColor,
+                        buttonColor:AppColors.colorLogo,
                         contentPadding: const EdgeInsets.symmetric(vertical: 10),
                       ),
                     ],

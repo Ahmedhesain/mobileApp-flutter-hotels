@@ -48,6 +48,8 @@ dependencies:
   firebase_auth:
   firebase_core:
   cloud_firestore:
+  url_launcher: ^6.1.11
+
 
 
 

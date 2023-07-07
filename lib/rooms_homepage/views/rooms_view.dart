@@ -26,6 +26,7 @@ class RoomsView extends GetView<RoomsController> {
         .of(context)
         .size;
     return Scaffold(
+
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           elevation: 0,
@@ -61,6 +62,7 @@ class RoomsView extends GetView<RoomsController> {
         body: ListView(
           padding: EdgeInsets.zero,
           children: [
+
             Container(
               height: 300.h,
               decoration: const BoxDecoration(
@@ -145,8 +147,8 @@ class RoomsView extends GetView<RoomsController> {
                                     controller.offers[index]["price"],
                                     stars:3,
                                     percentage:0,
-                                    id: 2,
-                                    image:  "",
+                                    id:  controller.offersId[index],
+                                    image:  controller.offers[index]["img1"],
                                     sale: 1,);
                                 },
 
@@ -156,7 +158,7 @@ class RoomsView extends GetView<RoomsController> {
                       );
                     }),
                     Obx(() {
-                      if (controller.citiesLoading.value) {
+                      if (controller.roomsCitiesLoading.value) {
                         return Center(
                           child: Common.getSpin(),
                         );
@@ -176,11 +178,11 @@ class RoomsView extends GetView<RoomsController> {
                               height: size.height * .18,
                               child:
                               ListView.builder(
-                                itemCount: 5,
+                                itemCount: controller.cities.length,
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (context, index) {
-                                  return TownCard(image:" controller.cities[index].image!", name: "test11",
-                                    id:1,);
+                                  return TownCard(image:controller.cities[index]["img"], name: controller.cities[index]["name"],
+                                    id:controller.cities[index]['name'],);
                                 },
 
                               )
@@ -209,14 +211,15 @@ class RoomsView extends GetView<RoomsController> {
                               height: size.height * .25,
                               child:
                               ListView.builder(
-                                itemCount: 6,
+                                itemCount: controller.ads.length,
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (context, index) {
                                   return AdCard(
                                     id:1,
-                                    name: "ad ad",
-                                    hotel: "hilton",
-                                    image: "controller.roomsAds[index].imgUrl!",);
+                                    name: controller.ads[index]["name"],
+                                    hotel: "hotels.com",
+                                    image:controller.ads[index]["img"],
+                                  onTap: controller.launchURL,);
                                 },
 
                               )
@@ -246,13 +249,13 @@ class RoomsView extends GetView<RoomsController> {
                               height: size.height * .18,
                               child:
                               ListView.builder(
-                                itemCount:10,
+                                itemCount:controller.discover.length,
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (context, index) {
                                   return DiscoverCard(
-                                      id: 1,
-                                      image:" controller.roomsDiscover[index].imgUrl!",
-                                      name: "sheraton");
+                                      id: controller.discover[index]["name"],
+                                      image: controller.discover[index]["img"],
+                                      name:  controller.discover[index]["name"]);
                                 },
 
                               )

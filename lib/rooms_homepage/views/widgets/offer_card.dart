@@ -15,7 +15,7 @@ class RoomCard extends StatelessWidget {
   final num price;
   final int percentage;
   final String name;
-  final int id;
+  final String id;
   final String image;
   final int sale;
 
@@ -24,7 +24,7 @@ class RoomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Get.toNamed(Routes.ROOM_DETAIL,arguments: id);
+        Get.toNamed(Routes.ROOM_DETAIL,arguments: [id,"cairo"]);
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -38,10 +38,10 @@ class RoomCard extends StatelessWidget {
             fit: StackFit.expand,
             children: [
               Positioned.fill(
-                  child: ImageWidget(
-                    path: image,
+                  child: Image.network(
+                     image,
                     fit: BoxFit.fill,
-                    backgroundColor: Colors.black12,
+                    // backgroundColor: Colors.black12,
                   )),
               PositionedDirectional(
                 top: 0,

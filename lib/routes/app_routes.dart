@@ -18,6 +18,8 @@ abstract class Routes {
   static const ROOM_DETAIL = _Paths.ROOM_DETAIL;
 
   static const ROOM_CHECKOUT = _Paths.ROOM_CHECKOUT;
+  static const ORDERS = _Paths.ORDERS;
+  static const PROFILE = _Paths.PROFILE;
 
 }
 
@@ -38,6 +40,8 @@ abstract class _Paths {
   static const ROOM_DETAIL = '/rooms-detail';
 
   static const ROOM_CHECKOUT = '/room-checkout';
+  static const ORDERS = '/orders';
+  static const PROFILE = '/profile';
 
 
 }

@@ -8,14 +8,15 @@ import 'package:hotels_app/core/values/app_strings.dart';
 import 'package:hotels_app/routes/app_pages.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 class RoomsCardWidget extends StatelessWidget {
-  const RoomsCardWidget({Key? key, required this.price,required this.collection, required this.image, required this.title, required this.subtitle, required this.id, this.onTap}) : super(key: key);
-  final num price;
+  const RoomsCardWidget({Key? key, required this.price,required this.collection, required this.image, required this.title, required this.subtitle, required this.id, this.onTap, required this.rate}) : super(key: key);
+  final String price;
   final String id;
   final String collection;
   final String image;
   final String title ;
   final String subtitle ;
   final Function()? onTap;
+  final double rate;
 
 
   @override
@@ -48,7 +49,7 @@ class RoomsCardWidget extends StatelessWidget {
                             borderRadius: const BorderRadius.all(Radius.circular(15)),
                             image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: AssetImage(
+                                image: NetworkImage(
                                   image)
                             )
                         ),
@@ -68,7 +69,7 @@ class RoomsCardWidget extends StatelessWidget {
                                 child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     RatingBar.builder(
-                                        initialRating: 3,
+                                        initialRating: rate!,
                                         minRating: 1,
                                         direction: Axis.horizontal,
                                         allowHalfRating: true,

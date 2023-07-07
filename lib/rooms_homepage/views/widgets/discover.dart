@@ -11,7 +11,7 @@ class DiscoverCard extends StatelessWidget {
   const DiscoverCard({Key? key, required this.image, required this.name, this.onTap, required this.id}) : super(key: key);
   final String image;
   final String name;
-  final int id;
+  final String id;
   final Function()? onTap;
 
 
@@ -20,7 +20,7 @@ class DiscoverCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size =MediaQuery.of(context).size;
     return GestureDetector(onTap: (){
-    Get.toNamed(Routes.ROOM_DETAIL,arguments: id);
+    Get.toNamed(Routes.HOTEL_ROOMS,arguments: [id]);
     },
       child: Container(
         width: size.width * .45,
